@@ -24,7 +24,9 @@ $(function(){
 
 // Валидация форм
 
-const payButt = document.querySelector('#pay');
+const payButt = document.getElementById('pay');
+const check = document.getElementById('check');
+
 // //Почта
 const validateEmail = (email) => {
 	return email.match(
@@ -48,7 +50,38 @@ const validate = () => {
   
   $('#email').on('input', validate);
 
-//Телефон
+
+
+  //Имя
+
+const validateName = (name) => {
+	return name.match(
+		/^[A-ЯЁ][а-яё]+\s[A-ЯЁ][а-яё]+$/
+	);
+};
+const validateNa = () => {
+	let nameCheck = false;
+	const $name = $('#name');
+	const name = $('#name').val();
+	
+  
+	if(validateName(name)){
+		$name.css('border-color', 'green');
+		nameCheck = true;
+	} else{
+		$name.css('border', '2px solid red');
+	}
+	// if (nameCheck) {
+	// 	payButt.disabled = false;
+	// }
+	// return nameCheck, false;
+	
+}
+  
+  $('#name').on('input', validateNa);
+  
+
+ //Телефон
 function validateTeleph () {
 	const validateTel = (tel) => {
 	return tel.match(
@@ -76,42 +109,45 @@ const validateTelephon = () => {
 
 validateTeleph();
 
+// function btnActive() {
+// 	payButt
+// 	payButt.disabled = false;
+// 	return payButt;
+// }
 
-if (validateTeleph == true) {
-	console.log('кнопка активна')
-	payButt.disabled = false;
-}
+// if (validateTeleph == true) {
+// 	console.log('кнопка активна')
+// 	btnActive();
+// }
 
-  //Имя
+// function validateCheckbox() {
+// 	if (check.checked) {
+// 		console.log('checked');
+// 		btnActive();
+// 	} 
+// }
+// validateCheckbox();
 
-const validateName = (name) => {
-	return name.match(
-		/^[A-ЯЁ][а-яё]+\s[A-ЯЁ][а-яё]+$/
-	);
-};
-const validateNa = () => {
-	let nameCheck = false;
-	const $name = $('#name');
-	const name = $('#name').val();
-	
+// $('#check').on("click", function(){
+// 	if ($('#check').is(":checked")) {
+//         btnActive();
+//     }
+// });
   
-	if(validateName(name)){
-		$name.css('border-color', 'green');
-		// $name.text('Введите имя и фамилию с БОЛЬШОЙ буквы')
-		nameCheck = true;
-	} else{
-		$name.css('border', '2px solid red');
+
+function toggleBtnSubmit(){
+	let useremail = document.getElementById('email').value;
+	let username = document.getElementById('name').value;
+	let usertel = document.getElementById('tel').value;
+	let userbtn = document.getElementById('pay');
+
+	if (useremail && username && usertel && check.checked ) {
+		userbtn.disabled = false;
+	} else {
+		userbtn.disabled = true;
 	}
-	if (nameCheck) {
-		payButt.disabled = false;
-	}
-	return nameCheck, false;
-	
 }
-  
-  $('#name').on('input', validateNa);
-  
-
+toggleBtnSubmit();
 //   //Дизейбл кнопки Оплатить, пока формы не заполнены корректно
 
 // const payButt =  document.querySelector('#pay');

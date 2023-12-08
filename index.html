@@ -190,20 +190,20 @@
         <div class="leave-contacts">
             <form >
                 <div class="email">
-                    <input type="text" maxlength="60" class="f-input" id="email" placeholder="Введите ваш эл. адрес" name="formParams[email]" value="" required><br>
+                    <input type="text" maxlength="60" class="f-input" id="email" placeholder="Введите ваш эл. адрес" name="formParams[email]" value="" required autocomplete="on"><br>
                 </div>
                 <div class="name">
-                    <input type="text" maxlength="60" class="f-input" id="name" placeholder="Введите ваше Имя и Фамилию" name="formParams[full_name]" value=""><br>
+                    <input type="text" maxlength="60" class="f-input" id="name" placeholder="Введите ваше Имя и Фамилию" name="formParams[full_name]" value="" required autocomplete="on"><br>
                 </div>
                 <div class="tel">
-                    <input type="text" maxlength="60" class="f-input" id="tel" placeholder="Введите ваш телефон" name="formParams[phone]" value="" required><br>
+                    <input type="text" maxlength="60" class="f-input" id="tel" placeholder="Введите ваш телефон" name="formParams[phone]" value="" required autocomplete="on"><br>
                 </div>
                 <div class="pay-button">
                     <button type="submit" class="butt" id="pay" disabled><a href="#email" itemprop="url" >Оплатить</a></button>
                     <p><em>после оплаты, в течение 10 минут, на почту придёт письмо с информацией о курсе</em></p>
                     <div class="agree">
                         <label>
-                            <input class="global-confirm-checkbox" type="checkbox" checked="" name="globalConfirmCheckbox">
+                            <input class="global-confirm-checkbox" id="check" type="checkbox" checked="" name="globalConfirmCheckbox">
                             <span class="checkbox-text">"Я согласен на обработку моих персональных данных в соответствии с 
                                 <a href="#" target="_blank" itemprop="url">Условиями</a>  и 
                                 <a href="#" target="_blank" itemprop="url">Договором оферты</a>
